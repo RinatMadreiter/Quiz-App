@@ -1,25 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz-App</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz-App</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
-<body>
-    <h1>Hallo Welt</h1>
 
-    <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
+<body onload="init()">
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">Quiz-App</span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card quiz-card">
+      <img src="./img/quiz.png" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title" id="question-text">Frage</h5>
+
+        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
+          <div class="card-body" id="answer_1">
+            Antwort
+          </div>
         </div>
+
+        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
+          <div class="card-body" id="answer_2">
+            Antwort
+          </div>
+        </div>
+
+        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
+          <div class="card-body" id="answer_3">
+            Antwort
+          </div>
+        </div>
+
+        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
+          <div class="card-body" id="answer_4">
+            Antwort
+          </div>
+        </div>
+
+        <div class="question-footer">
+          <span>
+          <b>1</b> von <b id="questionsAmount">7</b> Fragen
+        </span>
+        <button type="button" class="btn btn-primary">Nächste Frage</button>
+        </div>
+
+
       </div>
-    <button class="btn btn-primary" >Action!</button>
+    </div>
+  </div>
 
 
-    <a href="#">Das hier ist ein Link</a>
+  <footer>
+    Illustration by <a href="https://icons8.com/illustrations/author/6141c9688446d80011488727">Polina Orlova</a> from <a
+      href="https://icons8.com/illustrations">Ouch!</a>
+  </footer>
 </body>
+
 </html>
