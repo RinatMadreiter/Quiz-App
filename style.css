@@ -11,10 +11,10 @@ body {
     background-color: #077AFF;
 }
 
-.question-footer{
+.question-footer {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid rgba(0,0,0,0.4);
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
     align-items: center;
     padding-top: 12px;
     padding-left: 6px;
@@ -33,17 +33,34 @@ body {
 
 .right-answer-style {
     animation-name: right-answer-color;
-    animation-duration: 225ms;
-    /* background-color: greenyellow ; */
-    /* transition: 225ms ease-in-out; */
+    animation-duration: 200ms;
+    transition: ease-out; 
 }
 
 @keyframes right-answer-color {
-    from {background-color: rgba(0, 0, 0, 0.05);}
-  to {background-color: greenyellow ;}
+    from {
+        background-color: rgba(0, 0, 0, 0.05);
+    } 
+
+    to {
+        background-color: rgb(138, 211, 30);
+        color: white;
+    }
 }
 
 .wrong-answer-style {
-    background-color: darkred;
-    transition: 225ms ease-in-out;
+    animation-name: wrong-answer-color;
+    animation-duration: 200ms;
+    transition: ease-out; 
+}
+
+@keyframes wrong-answer-color {
+    from {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    to {
+        background-color: darkred;
+        color: white;
+    }
 }
