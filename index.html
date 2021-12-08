@@ -8,21 +8,24 @@
   <title>Quiz-App</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./stylemax350px.css">
+  <link rel="stylesheet" href="./stylemax450px.css">
+  <link rel="stylesheet" href="./stylemax650px.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src="script.js"></script>
+  <link rel="icon" type="image/x-icon" href="./img/fav.ico">
 </head>
 
 <body onload="init()">
 
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">Quiz-App</span> 
-    </div>
-  </nav>
-
   <div class="container">
 
-    <div class="card quiz-card">
+    <div class="card quiz-card w3-animate-top">
       <img src="./img/quiz.png" class="card-img-top">
+      <span class="credit">
+        Illustration by <a href="https://icons8.com/illustrations/author/6141c9688446d80011488727">Polina Orlova</a> from
+        <a href="https://icons8.com/illustrations">Ouch!</a>
+      </span>
 
       <div class="progress">
         <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25"
@@ -43,25 +46,25 @@
       <div class="card-body" id="questionBody">
         <h5 class="card-title" id="question-text">Frage</h5>
 
-        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_1')">
+        <div class="card mb-2 quiz-answer-card hover-style1" id="onclick1" onclick="answer('answer_1')">
           <div class="card-body" id="answer_1">
             Antwort
           </div>
         </div>
 
-        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_2')">
+        <div class="card mb-2 quiz-answer-card hover-style1" onclick="answer('answer_2')">
           <div class="card-body" id="answer_2">
             Antwort
           </div>
         </div>
 
-        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_3')">
+        <div class="card mb-2 quiz-answer-card hover-style1" onclick="answer('answer_3')">
           <div class="card-body" id="answer_3">
             Antwort
           </div>
         </div>
 
-        <div class="card mb-2 quiz-answer-card" onclick="answer('answer_4')">
+        <div class="card mb-2 quiz-answer-card hover-style1" onclick="answer('answer_4')">
           <div class="card-body" id="answer_4">
             Antwort
           </div>
@@ -81,10 +84,6 @@
   </div>
 
 
-  <footer>
-    Illustration by <a href="https://icons8.com/illustrations/author/6141c9688446d80011488727">Polina Orlova</a> from <a
-      href="https://icons8.com/illustrations">Ouch!</a>
-  </footer>
 </body>
 
 </html>

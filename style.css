@@ -26,10 +26,15 @@ body {
 }
 
 
-.quiz-answer-card:hover {
+.hover-style1:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.05);
 }
+
+.hover-style2:hover {
+    cursor: not-allowed;
+}
+
 
 .right-answer-style {
     animation-name: right-answer-color;
@@ -63,4 +68,13 @@ body {
         background-color: darkred;
         color: white;
     }
+}
+
+.credit {
+    font-size:10px;
+}
+
+.credit a {
+    color: #212529;
+    text-decoration: none;
 }

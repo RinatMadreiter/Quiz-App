@@ -64,7 +64,11 @@ let questions = [
 let rightAnsweredQuestions = 0;
 let currentQuestion = 0;
 let Audio_Success = new Audio('./audio/success.mp3');
+Audio_Success.volume = 0.2; 
 let Audio_Failure = new Audio('./audio/failure.mp3');
+Audio_Failure.volume = 0.1; 
+
+let quizCard = document.getElementsByClassName("quiz-card");
 
 function init() {
     let amountOfQuestions = questions.length;
@@ -75,25 +79,11 @@ function init() {
 }
 
 function showQuestion() {
-    if (currentQuestion >= questions.length) {  //End-screen
-        document.getElementById('endScreen').style = ''; //Remove style and it removes Display-none
-        document.getElementById('questionBody').style = 'display: none';
-        document.getElementById('questionsAmountEnd').innerHTML = questions.length;
-        document.getElementById('amountOfRightQuestions').innerHTML = rightAnsweredQuestions;
-    } else { //show current question
-        
-        let percent = (currentQuestion + 1) / questions.length * 100;
-        console.log(percent);
-        document.getElementById('progress-bar').innerHTML = `${percent.toFixed(0)} %`;
-        document.getElementById('progress-bar').style = `width: ${percent.toFixed(0)}%`;
-        document.getElementById('progress-bar').style.width = `${percent} %`;
-        
-        let question = questions[currentQuestion];
-        document.getElementById('question-text').innerHTML = question['question'];
-        document.getElementById('answer_1').innerHTML = question['answer_1'];
-        document.getElementById('answer_2').innerHTML = question['answer_2'];
-        document.getElementById('answer_3').innerHTML = question['answer_3'];
-        document.getElementById('answer_4').innerHTML = question['answer_4'];
+    if (gameIsOver()) {
+        showEndScreen();
+    } else {
+        updateProgressBar();
+        updateToNextQuestion();
     }
 }
 
@@ -101,8 +91,7 @@ function showQuestion() {
 function answer(clickedAnswer) {
     let rightAnswerNumber = questions[currentQuestion].right_answer;
     let rightAnswerText = "answer_" + rightAnswerNumber;
-    console.log(rightAnswerText, "\n", clickedAnswer);
-    if (rightAnswerText == clickedAnswer) {
+    if (rightAnswerSelected(rightAnswerText, clickedAnswer)) {
         Audio_Success.play();
         document.getElementById(clickedAnswer).parentNode.classList.add('right-answer-style');
         setTimeout(removeAnswerStyle, 230, clickedAnswer, rightAnswerText);
@@ -114,11 +103,16 @@ function answer(clickedAnswer) {
         setTimeout(removeAnswerStyle, 230, clickedAnswer, rightAnswerText);
     }
     document.getElementById('next-button').disabled = false; // enable Button after first try
+    quizCard[0].classList.remove('w3-animate-top');
+    removeOnclickAttributefromAnswers();
+    removeHoverStyle1fromQuizAnswerCard();
+    addHoverStyle2fromQuizAnswerCard();
 }
-
+ 
 /**
  * Function which removes the "wrong-answer-style" & "right-answer-style"
- * @param {*} clickedAnswer 
+ * @param {*} clickedAnswer  
+ * @param {*} rightAnswerText  
  */
 function removeAnswerStyle(clickedAnswer, rightAnswerText) {
     document.getElementById(clickedAnswer).parentNode.classList.remove('right-answer-style');
@@ -131,6 +125,8 @@ function nextQuestion() {
     currentQuestion++; // die Frage wird  z.Bsp von 0 auf 1 erhöht
     document.getElementById('next-button').disabled = true; //disable button at the beginning of the next question
     let currentAmountOfQuestions = currentQuestion + 1;
+    quizCard[0].classList.add('w3-animate-top');
+    addOnclickAttributefromAnswers();
     document.getElementById('questionCurrentAmount').innerHTML = `${currentAmountOfQuestions}`;
     showQuestion();
 }
@@ -145,9 +141,85 @@ function restartGame() {
     document.getElementById('questionBody').style = ''; // Question Body wieder anzeigen
     document.getElementById('questionCurrentAmount').innerHTML = `${currentAmountOfQuestions}`;
 }
+
+function showEndScreen() {
+    document.getElementById('endScreen').style = ''; //Remove style and it removes Display-none
+    document.getElementById('questionBody').style = 'display: none';
+    document.getElementById('questionsAmountEnd').innerHTML = questions.length;
+    document.getElementById('amountOfRightQuestions').innerHTML = rightAnsweredQuestions;
+}
+
+function updateToNextQuestion() {
+    let question = questions[currentQuestion];
+    document.getElementById('question-text').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+}
+
+
+function updateProgressBar() {
+    let percent = (currentQuestion + 1) / questions.length * 100;
+    document.getElementById('progress-bar').innerHTML = `${percent.toFixed(0)} %`;
+    document.getElementById('progress-bar').style = `width: ${percent.toFixed(0)}%`;
+    document.getElementById('progress-bar').style.width = `${percent} %`;
+}
+
+
+function gameIsOver() {
+    return currentQuestion >= questions.length
+}
+
+function rightAnswerSelected(rightAnswerText, clickedAnswer) {
+    return rightAnswerText == clickedAnswer
+}
+
+function removeOnclickAttributefromAnswers() {
+    document.getElementsByClassName("quiz-answer-card")[0].removeAttribute("onclick");
+    document.getElementsByClassName("quiz-answer-card")[1].removeAttribute("onclick");
+    document.getElementsByClassName("quiz-answer-card")[2].removeAttribute("onclick");
+    document.getElementsByClassName("quiz-answer-card")[3].removeAttribute("onclick");
+} 
+
+function addOnclickAttributefromAnswers() {
+    document.getElementsByClassName("quiz-answer-card")[0].setAttribute("onclick", "answer('answer_1')");
+    document.getElementsByClassName("quiz-answer-card")[1].setAttribute("onclick", "answer('answer_2')");
+    document.getElementsByClassName("quiz-answer-card")[2].setAttribute("onclick"," answer('answer_3')");
+    document.getElementsByClassName("quiz-answer-card")[3].setAttribute("onclick", "answer('answer_4')");
+} 
+
+function removeHoverStyle1fromQuizAnswerCard() {
+    document.getElementsByClassName("quiz-answer-card")[0].classList.remove('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[1].classList.remove('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[2].classList.remove('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[3].classList.remove('hover-style1');
+}
+
+function addHoverStyle1fromQuizAnswerCard() {
+    document.getElementsByClassName("quiz-answer-card")[0].classList.add('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[1].classList.add('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[2].classList.add('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[3].classList.add('hover-style1');
+}
+
+function addHoverStyle2fromQuizAnswerCard() {
+    document.getElementsByClassName("quiz-answer-card")[0].classList.add('hover-style2');
+    document.getElementsByClassName("quiz-answer-card")[1].classList.add('hover-style2');
+    document.getElementsByClassName("quiz-answer-card")[2].classList.add('hover-style2');
+    document.getElementsByClassName("quiz-answer-card")[3].classList.add('hover-style2');
+}
+
+function removeHoverStyle2fromQuizAnswerCard() {
+    document.getElementsByClassName("quiz-answer-card")[0].classList.remove('hover-style2');
+    document.getElementsByClassName("quiz-answer-card")[1].classList.remove('hover-style2');
+    document.getElementsByClassName("quiz-answer-card")[2].classList.remove('hover-style2');
+    document.getElementsByClassName("quiz-answer-card")[3].classList.remove('hover-style2');
+}
 /**
- * todo: nächste Frage anzeigen lassen	✔
- * todo: Button reset ✔
+ * ✔
+ * todo: lautstärke anpassen ✔
+ * todo: frage nur ein mal beantwortbar erledigt
  * todo show end-screen
  *
  */
