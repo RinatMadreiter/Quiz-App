@@ -28,7 +28,7 @@ let questions = [
         "right_answer": 4
     },
     {
-        "question": "How many million copies of \"Mensch ärgere dich nicht\" were sold?",
+        "question": "How many million copies of \"Mensch ärgere dich nicht\" have been sold so far?",
         "answer_1": "25",
         "answer_2": "55",
         "answer_3": "75",
@@ -36,7 +36,7 @@ let questions = [
         "right_answer": 4
     },
     {
-        "question": "In which german city the biggest yearly boardgame convention takes place?",
+        "question": "In which german city does the biggest yearly boardgame convention take place?",
         "answer_1": "Munich",
         "answer_2": "Berlin",
         "answer_3": "Essen",
@@ -44,7 +44,7 @@ let questions = [
         "right_answer": 3
     },
     {
-        "question": "What is the best family boardgame according to \"Boardgamegeeks.com\"?",
+        "question": "What is the highest rated family boardgame according to \"Boardgamegeeks.com\"?",
         "answer_1": "Wingspan",
         "answer_2": "Lost Ruins of Arnak",
         "answer_3": "Everdell",
@@ -52,7 +52,7 @@ let questions = [
         "right_answer": 1
     },
     {
-        "question": "Which game won the \"Spiel des Jahres\" award this year?",
+        "question": "Which game won the \"Spiel des Jahres\" award this year (2021) ?",
         "answer_1": "The Adventures of Robin Hood",
         "answer_2": "Point Salad",
         "answer_3": "Micro Macro: Crime City",
@@ -102,8 +102,8 @@ function answer(clickedAnswer) {
         document.getElementById(rightAnswerText).parentNode.classList.add('right-answer-style');
         setTimeout(removeAnswerStyle, 230, clickedAnswer, rightAnswerText);
     }
+    displayArrow();
     document.getElementById('next-button').disabled = false; // enable Button after first try
-    quizCard[0].classList.remove('w3-animate-top');
     removeOnclickAttributefromAnswers();
     removeHoverStyle1fromQuizAnswerCard();
     addHoverStyle2fromQuizAnswerCard();
@@ -125,8 +125,9 @@ function nextQuestion() {
     currentQuestion++; // die Frage wird  z.Bsp von 0 auf 1 erhöht
     document.getElementById('next-button').disabled = true; //disable button at the beginning of the next question
     let currentAmountOfQuestions = currentQuestion + 1;
-    quizCard[0].classList.add('w3-animate-top');
     addOnclickAttributefromAnswers();
+    removeHoverStyle2fromQuizAnswerCard();
+    addHoverStyle1fromQuizAnswerCard();
     document.getElementById('questionCurrentAmount').innerHTML = `${currentAmountOfQuestions}`;
     showQuestion();
 }
@@ -189,12 +190,6 @@ function addOnclickAttributefromAnswers() {
     document.getElementsByClassName("quiz-answer-card")[3].setAttribute("onclick", "answer('answer_4')");
 } 
 
-function removeHoverStyle1fromQuizAnswerCard() {
-    document.getElementsByClassName("quiz-answer-card")[0].classList.remove('hover-style1');
-    document.getElementsByClassName("quiz-answer-card")[1].classList.remove('hover-style1');
-    document.getElementsByClassName("quiz-answer-card")[2].classList.remove('hover-style1');
-    document.getElementsByClassName("quiz-answer-card")[3].classList.remove('hover-style1');
-}
 
 function addHoverStyle1fromQuizAnswerCard() {
     document.getElementsByClassName("quiz-answer-card")[0].classList.add('hover-style1');
@@ -202,6 +197,14 @@ function addHoverStyle1fromQuizAnswerCard() {
     document.getElementsByClassName("quiz-answer-card")[2].classList.add('hover-style1');
     document.getElementsByClassName("quiz-answer-card")[3].classList.add('hover-style1');
 }
+
+function removeHoverStyle1fromQuizAnswerCard() {
+    document.getElementsByClassName("quiz-answer-card")[0].classList.remove('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[1].classList.remove('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[2].classList.remove('hover-style1');
+    document.getElementsByClassName("quiz-answer-card")[3].classList.remove('hover-style1');
+}
+
 
 function addHoverStyle2fromQuizAnswerCard() {
     document.getElementsByClassName("quiz-answer-card")[0].classList.add('hover-style2');
@@ -215,6 +218,14 @@ function removeHoverStyle2fromQuizAnswerCard() {
     document.getElementsByClassName("quiz-answer-card")[1].classList.remove('hover-style2');
     document.getElementsByClassName("quiz-answer-card")[2].classList.remove('hover-style2');
     document.getElementsByClassName("quiz-answer-card")[3].classList.remove('hover-style2');
+}
+
+function displayArrow() {
+    document.getElementById('arrow').classList.remove('d-none');
+}
+
+function hideArrow() {
+    document.getElementById('arrow').classList.add('d-none');
 }
 /**
  * ✔
