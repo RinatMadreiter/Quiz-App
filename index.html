@@ -21,8 +21,8 @@
   <div class="container">
 
     <div class="card quiz-card w3-animate-top">
-      <img src="./img/quiz.png" class="card-img-top">
-      <span class="credit">
+      <img src="./img/quiz.png" class="card-img-top" id="headerImg">
+      <span class="credit" id="credit">
         Illustration by <a href="https://icons8.com/illustrations/author/6141c9688446d80011488727">Polina Orlova</a> from
         <a href="https://icons8.com/illustrations">Ouch!</a>
       </span>
@@ -31,14 +31,14 @@
         <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25"
           aria-valuemin="0" aria-valuemax="100">25%</div>
       </div>
-      <div class="card-body" id="endScreen" style="display: none;">
-        <div class="text-center">Quiz beendet!</div>
+      <div class="card-body d-none" id="endScreen">
+        <div class="text-center" id="textQuizEnd">Quiz beendet!</div>
 
 
         <div class="text-center">Du hast <b id="amountOfRightQuestions">XX</b> von <b id="questionsAmountEnd">xx</b>
           Fragen richtig beantwortet</div>
 
-        <div class="d-flex justify-content-center mt-5">
+        <div class="d-flex justify-content-center mt-5" id="restartButtonDiv">
           <button type="button" class="btn btn-primary" onclick="restartGame()">Erneut Spielen</button>
         </div>
       </div>
@@ -46,25 +46,25 @@
       <div class="card-body" id="questionBody">
         <h5 class="card-title" id="question-text">Frage</h5>
 
-        <div class="card mb-2 quiz-answer-card hover-style1" id="onclick1" onclick="answer('answer_1')">
+        <div class="card mb-2 quiz-answer-card hover-style-pointer" id="onclick1" onclick="answer('answer_1')">
           <div class="card-body" id="answer_1">
             Antwort
           </div>
         </div>
 
-        <div class="card mb-2 quiz-answer-card hover-style1" onclick="answer('answer_2')">
+        <div class="card mb-2 quiz-answer-card hover-style-pointer" onclick="answer('answer_2')">
           <div class="card-body" id="answer_2">
             Antwort
           </div>
         </div>
 
-        <div class="card mb-2 quiz-answer-card hover-style1" onclick="answer('answer_3')">
+        <div class="card mb-2 quiz-answer-card hover-style-pointer" onclick="answer('answer_3')">
           <div class="card-body" id="answer_3">
             Antwort
           </div>
         </div>
 
-        <div class="card mb-2 quiz-answer-card hover-style1" onclick="answer('answer_4')">
+        <div class="card mb-2 quiz-answer-card hover-style-pointer" onclick="answer('answer_4')">
           <div class="card-body" id="answer_4">
             Antwort
           </div>

@@ -26,12 +26,12 @@ body {
 }
 
 
-.hover-style1:hover {
+.hover-style-pointer:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.05);
 }
-
-.hover-style2:hover {
+ 
+.hover-style-not-allowed:hover {
     cursor: not-allowed;
 }
 
@@ -98,4 +98,8 @@ body {
     100% {
         transform: translate(60px, 0);
     }
+}
+
+.margin-bottom20px {
+    margin-bottom: 20px !important;
 }

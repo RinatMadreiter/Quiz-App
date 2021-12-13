@@ -1,5 +1,5 @@
 @media(max-width: 650px) and (min-width: 451px) {
-    .container{
+    .container {
         /* width: 100vw !important; */
         height: 100vh !important;
         padding: 0 !important;
@@ -19,6 +19,23 @@
 
     .progress {
         width: 100vw;
+    } 
+
+    #headerImg {
+        height: 50vh;
+        object-fit: contain;
     }
- 
+
+
+    @keyframes arrow-moves-right {
+
+
+        0% {
+            transform: translate(0, 0);
+        }
+
+        100% {
+            transform: translate(32px, 0);
+        }
+    }
 }
