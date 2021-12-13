@@ -1,0 +1,68 @@
+Du hast x Fragen von x richtig beantwortet!
+x von x Fragen
+
+Quiz beendet!
+näcshte Frage
+erneut spielen
+
+
+What is the most sold boardgame of all time?
+
+let questions = [
+    {
+        "question": "What is the most sold boardgame of all time?",
+        "answer_1": "Monopoly",
+        "answer_2": "Chess",
+        "answer_3": "Risk",
+        "answer_4": "Scrabble",
+        "right_answer": 2
+    },
+    {
+        "question": "Since when does the \"Spiel des Jahres\" award exist?",
+        "answer_1": "1979",
+        "answer_2": "1985",
+        "answer_3": "1993",
+        "answer_4": "2000",
+        "right_answer": 1
+    },
+    {
+        "question": "What is the most famous german boardgame so far?",
+        "answer_1": "Scotland Yard",
+        "answer_2": "Tabu",
+        "answer_3": "Catan",
+        "answer_4": "Mensch ärgere dich nicht",
+        "right_answer": 4
+    },
+    {
+        "question": "How many million copies of \"Mensch ärgere dich nicht\" have been sold so far?",
+        "answer_1": "25",
+        "answer_2": "55",
+        "answer_3": "75",
+        "answer_4": "95",
+        "right_answer": 4
+    },
+    {
+        "question": "In which german city does the biggest yearly boardgame convention take place?",
+        "answer_1": "Munich",
+        "answer_2": "Berlin",
+        "answer_3": "Essen",
+        "answer_4": "Hamburg",
+        "right_answer": 3
+    },
+    {
+        "question": "What is the highest rated family boardgame according to \"Boardgamegeeks.com\"?",
+        "answer_1": "Wingspan",
+        "answer_2": "Lost Ruins of Arnak",
+        "answer_3": "Everdell",
+        "answer_4": "Die Crew",
+        "right_answer": 1
+    },
+    {
+        "question": "Which game won the \"Spiel des Jahres\" award this year (2021) ?",
+        "answer_1": "The Adventures of Robin Hood",
+        "answer_2": "Point Salad",
+        "answer_3": "Micro Macro: Crime City",
+        "answer_4": "Paleo",
+        "right_answer": 3
+    }
+];

@@ -4,15 +4,15 @@
 
 let questions = [
     {
-        "question": "What is the most sold boardgame of all time?",
+        "question": "Was ist das am meisten verkaufte Brettspiel aller Zeiten?",
         "answer_1": "Monopoly",
-        "answer_2": "Chess",
-        "answer_3": "Risk",
+        "answer_2": "Schach",
+        "answer_3": "Risiko",
         "answer_4": "Scrabble",
         "right_answer": 2
     },
     {
-        "question": "Since when does the \"Spiel des Jahres\" award exist?",
+        "question": "Seit wann gibt es den\"Spiel des Jahres Preis\"?",
         "answer_1": "1979",
         "answer_2": "1985",
         "answer_3": "1993",
@@ -20,7 +20,7 @@ let questions = [
         "right_answer": 1
     },
     {
-        "question": "What is the most famous german boardgame so far?",
+        "question": "Was ist das bekannteste deutsche Brettspiel?",
         "answer_1": "Scotland Yard",
         "answer_2": "Tabu",
         "answer_3": "Catan",
@@ -28,7 +28,7 @@ let questions = [
         "right_answer": 4
     },
     {
-        "question": "How many million copies of \"Mensch ärgere dich nicht\" have been sold so far?",
+        "question": "Wie viele Millionen Exemplare von \"Mensch ärgere dich nicht\" wurden bis heute weltweit verkauft?",
         "answer_1": "25",
         "answer_2": "55",
         "answer_3": "75",
@@ -36,25 +36,25 @@ let questions = [
         "right_answer": 4
     },
     {
-        "question": "In which german city does the biggest yearly boardgame convention take place?",
-        "answer_1": "Munich",
+        "question": "In welcher deutschen Stadt findet die größte Brettspielmesse statt?",
+        "answer_1": "München",
         "answer_2": "Berlin",
         "answer_3": "Essen",
         "answer_4": "Hamburg",
         "right_answer": 3
     },
     {
-        "question": "What is the highest rated family boardgame according to \"Boardgamegeeks.com\"?",
-        "answer_1": "Wingspan",
-        "answer_2": "Lost Ruins of Arnak",
+        "question": "Was ist das am besten bewertete Familien-Brettspiel laut \"Boardgamegeeks.com\"?",
+        "answer_1": "Flügelschlag",
+        "answer_2": "Die Verlorenen Ruinen von Arnak",
         "answer_3": "Everdell",
         "answer_4": "Die Crew",
         "right_answer": 1
     },
     {
-        "question": "Which game won the \"Spiel des Jahres\" award this year (2021) ?",
-        "answer_1": "The Adventures of Robin Hood",
-        "answer_2": "Point Salad",
+        "question": "Welches Spiel ist dieses Jahr zum \"Spiel des Jahres\" nominiert worden?",
+        "answer_1": "Die Abenteuer des Robin Hood",
+        "answer_2": "Punktesalat",
         "answer_3": "Micro Macro: Crime City",
         "answer_4": "Paleo",
         "right_answer": 3
