@@ -12,7 +12,7 @@ let questions = [
         "right_answer": 2
     },
     {
-        "question": "Seit wann gibt es den\"Spiel des Jahres Preis\"?",
+        "question": "Seit wann gibt es den \"Spiel des Jahres Preis\"?",
         "answer_1": "1979",
         "answer_2": "1985",
         "answer_3": "1993",
