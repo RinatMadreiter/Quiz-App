@@ -103,3 +103,8 @@ body {
 .margin-bottom20px {
     margin-bottom: 20px !important;
 }
+
+#headerImg {
+    height: 40vh;
+    object-fit: contain;
+}
