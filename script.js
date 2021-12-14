@@ -136,20 +136,20 @@ function PlayFailureSoundAndCSSFeedback(clickedAnswer) {
     audioFailure.play();
     document.getElementById(clickedAnswer).parentNode.classList.add('wrong-answer-style');
     document.getElementById(rightAnswerText).parentNode.classList.add('right-answer-style');
-    setTimeout(removeAnswerStyle, 230, clickedAnswer, rightAnswerText);
+    setTimeout(removeAnswerStyle, 600, clickedAnswer);
 }
 
 
 /**
  * 1) play audioSuccess
- * 2) update CSS to see the clickedAnswer is right
+ * 2) update CSS to see if the clickedAnswer is right
  * 3) update number "rightAnsweredQuestions" for endscreen
- * @param {string} clickedAnswer 
+ * @param {string} clickedAnswer  
  */
 function playSuccesSoundAndCSSFeedback(clickedAnswer) {
     audioSuccess.play();
     document.getElementById(clickedAnswer).parentNode.classList.add('right-answer-style');
-    setTimeout(removeAnswerStyle, 230, clickedAnswer);
+    setTimeout(removeAnswerStyle, 600, clickedAnswer);
     rightAnsweredQuestions++; //increases the amont of the rightAnsweredQuestions for the endscreen
 }
 
@@ -193,7 +193,8 @@ function removeAnswerStyle(clickedAnswer) {
  * 3) Check if all questions answered, if yes then Endgame
  */
 function nextQuestion() {
-    incrementCurrentQuestionNumberForFollowingFunctions();
+    currentQuestion++; // die Frage wird  z.Bsp von 0 auf 1 erhöht
+    currentAmountOfQuestions++;
     disableButton(); //disable button at the beginning of the next question
     addOnclickAttributeToAnswers();
     removeHoverStyleNotAllowedFromQuizAnswerCard();
@@ -209,7 +210,7 @@ function nextQuestion() {
  */
 function restartGame() {
     replaceHeaderImgAndRemoveAnimation();
-    resetNumbers_1rightAnsweredQuestions_2currentQuestion_3currentAmountOfQuestions();
+    resetNumbersForNewGame();
     init();
     hideEndScreenAndDisplayQuestionBody();
     updateCurrentAmountOfQuestions();
@@ -440,21 +441,12 @@ function updateCurrentAmountOfQuestions() {
 
 
 /**
- * increment number currentQuestion for following functions
- */
-function incrementCurrentQuestionNumberForFollowingFunctions() {
-    currentQuestion++; // die Frage wird  z.Bsp von 0 auf 1 erhöht
-    currentAmountOfQuestions++;
-}
-
-
-/**
  * reset following numbers for restart:
  * 1) rightAnsweredQuestions
  * 2) currentQuestion
  * 3) currentAmountOfQuestions
  */
-function resetNumbers_1rightAnsweredQuestions_2currentQuestion_3currentAmountOfQuestions() {
+function resetNumbersForNewGame() {
     rightAnsweredQuestions = 0;
     currentQuestion = 0;
     currentAmountOfQuestions = 1;

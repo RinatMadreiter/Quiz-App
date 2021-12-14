@@ -30,7 +30,7 @@ body {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.05);
 }
- 
+
 .hover-style-not-allowed:hover {
     cursor: not-allowed;
 }
@@ -38,16 +38,21 @@ body {
 
 .right-answer-style {
     animation-name: right-answer-color;
-    animation-duration: 200ms;
+    animation-duration: 500ms;
     transition: ease-out;
 }
 
 @keyframes right-answer-color {
-    from {
+    0% {
         background-color: rgba(0, 0, 0, 0.05);
     }
 
-    to {
+    1% {
+        background-color: rgb(138, 211, 30);
+        color: white;
+    }
+
+    100% {
         background-color: rgb(138, 211, 30);
         color: white;
     }
@@ -55,16 +60,21 @@ body {
 
 .wrong-answer-style {
     animation-name: wrong-answer-color;
-    animation-duration: 200ms;
+    animation-duration: 500ms;
     transition: ease-out;
 }
 
 @keyframes wrong-answer-color {
-    from {
+    0% {
         background-color: rgba(0, 0, 0, 0.05);
     }
 
-    to {
+    1% {
+        background-color: darkred;
+        color: white;
+    }
+
+    100% {
         background-color: darkred;
         color: white;
     }
@@ -86,12 +96,11 @@ body {
     height: 32px;
     animation: arrow-moves-right 600ms ease;
     animation-fill-mode: forwards;
-} 
+}
 
 @keyframes arrow-moves-right {
 
-    
-    0% { 
+    0% {
         transform: translate(0, 0);
     }
 
@@ -112,5 +121,5 @@ body {
 #headerImg2 {
     height: 40vh;
     object-fit: contain;
-    
+
 }
