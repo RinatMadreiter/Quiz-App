@@ -31,4 +31,8 @@
             transform: translate(13px, 0);
         }
     }
+
+#headerImg {
+    height: 36vh;
+}
 }

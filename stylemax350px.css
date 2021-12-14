@@ -36,4 +36,7 @@
     .question-footer span {
         font-size: small;
     }
+    #headerImg {
+        height: 26vh;
+    }
 }

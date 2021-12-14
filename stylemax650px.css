@@ -25,6 +25,9 @@
         height: 40vh;
         object-fit: contain;
     }
+    #headerImg2 {
+        height: 40vh;
+    }
 
 
     @keyframes arrow-moves-right {
