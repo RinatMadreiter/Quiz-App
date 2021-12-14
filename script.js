@@ -220,8 +220,8 @@ function restartGame() {
  * replace headerImg with quizImg and remove animation
  */
 function replaceHeaderImgAndRemoveAnimation() {
-    document.getElementById('headerImg').classList.remove('w3-animate-zoom');
-    document.getElementById('headerImg').src = './img/quiz.png';
+    document.getElementById('headerImg').classList.remove('d-none');
+    document.getElementById('headerImg2').classList.add('d-none');
     document.getElementById('endScreen').classList.remove('w3-animate-zoom');
 }
 
@@ -233,11 +233,12 @@ function hideEndScreenAndDisplayQuestionBody() {
     document.getElementById('endScreen').classList.add('d-none'); //End-screen verstecken
     document.getElementById('questionBody').style = ''; // Question Body wieder anzeigen
     document.getElementById('endScreen').classList.remove('w3-animate-zoom');
-    document.getElementById('endScreen').classList.add('d-none'); 
+    document.getElementById('endScreen').classList.add('d-none');
 }
 
 
 /**
+ * END-Game-Screen
  * Hide Questions and display endscreen-img with zoom in animation 
  * after endscreen-img load QuizResult with zoom in animation
  */
@@ -245,7 +246,7 @@ function showEndScreen() {
     updateEndScreenImage();
     playEndGameSound();
     hideQuestionBody();
-    setTimeout(animateQuizResult, 600);
+    setTimeout(animateQuizResult, 400);
     displayQuizResult();
 }
 
@@ -254,7 +255,7 @@ function showEndScreen() {
  * Play EndGameSound
  */
 function playEndGameSound() {
-audioEndGame.play();
+    audioEndGame.play();
 }
 
 
@@ -262,7 +263,7 @@ audioEndGame.play();
  * hide questionBody and adjust CSS properties
  */
 function hideQuestionBody() {
-    
+
     document.getElementById('questionBody').style = 'display: none';
     document.getElementById('textQuizEnd').style = 'font-size: 32px; margin-bottom: 10px;';
     document.getElementById('restartButtonDiv').classList.add('margin-bottom20px');
@@ -281,11 +282,11 @@ function displayQuizResult() {
  * Replace HeaderImage and Credits and add animation to HeaderImage
  */
 function updateEndScreenImage() {
-    document.getElementById('headerImg').src = './img/trophy.png';
+    document.getElementById('headerImg').classList.add('d-none');
+    document.getElementById('headerImg2').classList.remove('d-none');
     document.getElementById('credit').innerHTML = `
         Illustration by <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
         `;
-    document.getElementById('headerImg').classList.add('w3-animate-zoom');
 }
 
 
@@ -294,7 +295,7 @@ function updateEndScreenImage() {
  */
 function animateQuizResult() {
     document.getElementById('endScreen').classList.add('w3-animate-zoom');
-    document.getElementById('endScreen').classList.remove('d-none'); 
+    document.getElementById('endScreen').classList.remove('d-none');
 }
 
 
@@ -469,6 +470,7 @@ function displayAmountOfAllQuestions() {
  * ✔
  * todo: lautstärke anpassen ✔
  * todo: frage nur ein mal beantwortbar ✔
- * todo show end-screen
+ * todo: show end-screen ✔
+ * todo: right timing of headerImg ✔
  *
  */
