@@ -44,20 +44,20 @@ let questions = [
         "right_answer": 3
     },
     {
-        "question": "Was ist das am besten bewertete Familien-Brettspiel laut \"Boardgamegeeks.com\"?",
+        "question": "Was ist das aktuell am besten bewertete Familien-Brettspiel laut \"Boardgamegeeks.com\"?",
         "answer_1": "Flügelschlag",
-        "answer_2": "Die Verlorenen Ruinen von Arnak",
+        "answer_2": "Sky Team",
         "answer_3": "Everdell",
         "answer_4": "Die Crew",
-        "right_answer": 1
+        "right_answer": 2
     },
     {
         "question": "Welches Spiel ist dieses Jahr zum \"Spiel des Jahres\" nominiert worden?",
-        "answer_1": "Die Abenteuer des Robin Hood",
+        "answer_1": "Bomb Busters",
         "answer_2": "Punktesalat",
         "answer_3": "Micro Macro: Crime City",
         "answer_4": "Paleo",
-        "right_answer": 3
+        "right_answer": 1
     }
 ];
 
